@@ -1,21 +1,22 @@
 import React from 'react'
-import { BrowserRouter, Route } from 'react-router-dom'
+
+import {
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom'
 
 import App from '_/app'
 import Index from '_/index'
-import Log from '_/log'
-
-/*
-<Route component={App}>
-  <Route path="index" component={Index} />
-  <Route path="log" component={Log} />
-</Route>
-*/
+import Log from '_/log/index'
 
 const router = (
-  <BrowserRouter>
-    <Route path="/" component={Log} />
-  </BrowserRouter>
+  <Router>
+    <div>
+      <Route path="/" exact component={App} />
+      <Route path="/index" component={Index} />
+      <Route path="/log" component={Log} />
+    </div>
+  </Router>
 )
 
 export default router

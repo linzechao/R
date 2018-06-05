@@ -8,6 +8,7 @@ react/react-router-dom/redux
 4. style-loader/css-loader
 5. mock
 6. react-router
+7. redux
 
 ### Q&A
 1. mock 没有自带服务器功能
