@@ -10,6 +10,7 @@ react/react-router-dom/redux
 6. react-router-dom
 7. less-loader
 8. sass-loader
+9. eslint-loader
 9. redux
 
 ### Q&A

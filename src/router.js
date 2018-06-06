@@ -6,13 +6,46 @@ import {
   Link
 } from 'react-router-dom'
 
-import { NavBar, Icon, Drawer, List} from 'antd-mobile'
+import {NavBar, Icon, Drawer, List} from 'antd-mobile'
 
 import './index.scss'
 
 import Page1 from '_/page1'
 import Page2 from '_/page2'
 import Page3 from '_/page3'
+
+/*
+import {createStore} from 'redux'
+
+// Store
+const store = createStore(reducer)
+// let { subscribe, dispatch, getState } = store
+
+// Action
+const ADD_TODO = '添加 TODO'
+function addTodo (text) {
+  return {
+    type: ADD_TODO,
+    text
+  }
+}
+const action = addTodo('Learn Redux')
+
+// Dispatch
+store.dispatch(action)
+
+// Reducer
+function reducer (state, action) {
+  return 'new state'
+}
+
+// Subscribe
+const unsubscribe = store.subscribe(listener)
+function listener () {
+}
+// 解除监听
+unsubscribe()
+*/
 
 const sidebar = (
   <List>
@@ -40,8 +73,7 @@ const RouterDOM = () => {
       <div>
         <NavBar
           icon={<Icon type="ellipsis" />}
-          onLeftClick={onOpenChange}
-          >M3 商学院</NavBar>
+          onLeftClick={onOpenChange}>M3 商学院</NavBar>
 
         <Drawer
           className="my-drawer"
