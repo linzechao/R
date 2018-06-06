@@ -1,4 +1,5 @@
 const path = require('path')
+const theme = require('./package.json').theme
 
 module.exports = {
   // mode: env.production ? 'production' : 'development',
@@ -27,6 +28,19 @@ module.exports = {
         }, {
           loader: 'css-loader'
         }]
+      },
+      {
+        test: /\.less$/,
+        use: [{
+          loader: 'style-loader'
+        }, {
+          loader: 'css-loader'
+        }, {
+          loader: 'less-loader',
+          options: {
+            modifyVars: theme
+          }
+        }]
       }
     ]
   },
@@ -35,7 +49,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src/components'),
+      // '@': path.resolve(__dirname, 'src/components'),
       '_': path.resolve(__dirname, 'src/router'),
       '$': path.resolve(__dirname, 'src/utils')
     }
