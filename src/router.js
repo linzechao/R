@@ -1,68 +1,79 @@
-import React from "react"
+import React from 'react'
 
 import {
   BrowserRouter as Router,
   Route,
   Link
-} from "react-router-dom"
+} from 'react-router-dom'
 
-import { NavBar, WhiteSpace, Grid } from 'antd-mobile'
+import { NavBar, Icon, Drawer, List} from 'antd-mobile'
+
+import './index.scss'
 
 import Page1 from '_/page1'
 import Page2 from '_/page2'
 import Page3 from '_/page3'
 
-const path = [{
-  name: 'Page1',
-  icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png'
-}, {
-  name: 'Page2',
-  icon: 'https://gw.alipayobjects.com/zos/rmsportal/WXoqXTHrSnRcUwEaQgXJ.png'
-}, {
-  name: 'Page3',
-  icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png'
-}]
-
-function toPath (path) {
-  console.log(path.name)
-}
-
-const BasicExample = () => (
-  <Router>
-    <div>
-      <NavBar>React APP</NavBar>
-      <WhiteSpace />
-
-      <Grid data={path}
-        onClick={toPath}
-        columnNum={3}
-        renderItem={dataItem => (
-          <div style={{ padding: '12.5px' }}>
-            <img src={dataItem.icon} style={{ width: '75px', height: '75px' }} />
-            <div style={{ color: '#888', fontSize: '14px', marginTop: '12px' }}>
-              <span>{dataItem.name}</span>
-            </div>
-          </div>
-        )}
-      />
-
-      <ul>
-        <li>
-          <Link to="/">Page1</Link>
-        </li>
-        <li>
-          <Link to="/page2">Page2</Link>
-        </li>
-        <li>
-          <Link to="/page3">Page3</Link>
-        </li>
-      </ul>
-
-      <Route exact path="/" component={Page1} />
-      <Route path="/page2" component={Page2} />
-      <Route path="/page3" component={Page3} />
-    </div>
-  </Router>
+const sidebar = (
+  <List>
+    <List.Item
+      thumb="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
+    ><Link to="/">Page1</Link></List.Item>
+    <List.Item
+      thumb="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
+    ><Link to="/page2">Page2</Link></List.Item>
+    <List.Item
+      thumb="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
+    ><Link to="/page">Page3</Link></List.Item>
+  </List>
 )
 
-export default BasicExample
+const RouterDOM = () => {
+  let open = false
+
+  const onOpenChange = (...args) => {
+    open = args[0]
+  }
+
+  return (
+    <Router>
+      <div>
+        <NavBar
+          icon={<Icon type="ellipsis" />}
+          onLeftClick={onOpenChange}
+          >M3 商学院</NavBar>
+
+        <Drawer
+          className="my-drawer"
+          style={{
+            minHeight: document.documentElement.clientHeight
+          }}
+          enableDragHandle
+          contentStyle={{ color: '#A6A6A6', textAlign: 'center', paddingTop: 42 }}
+          sidebar={sidebar}
+          open={open}
+          onOpenChange={onOpenChange}>
+
+          <ul>
+            <li>
+              <Link to="/">Page1</Link>
+            </li>
+            <li>
+              <Link to="/page2">Page2</Link>
+            </li>
+            <li>
+              <Link to="/page3">Page3</Link>
+            </li>
+          </ul>
+
+          <Route exact path="/" component={Page1} />
+          <Route path="/page1" component={Page1} />
+          <Route path="/page2" component={Page2} />
+          <Route path="/page3" component={Page3} />
+        </Drawer>
+      </div>
+    </Router>
+  )
+}
+
+export default RouterDOM

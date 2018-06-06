@@ -38,8 +38,20 @@ module.exports = {
         }, {
           loader: 'less-loader',
           options: {
-            modifyVars: theme
+            modifyVars: theme,
+            // antd less 报错
+            javascriptEnabled: true
           }
+        }]
+      },
+      {
+        test: /\.scss$/,
+        use: [{
+          loader: 'style-loader'
+        }, {
+          loader: 'css-loader'
+        }, {
+          loader: 'sass-loader'
         }]
       }
     ]
