@@ -1,16 +1,30 @@
 import React from 'react'
 import { combineReducers, createStore } from 'redux'
 
-import * as reducers from './reducers'
+// import * as reducers from './reducers'
 
-import typeUser from './actionTypes'
-/*
-import user from './actionTypes'
+// import { user as typeUser } from './actionTypes'
+import user, { user as typeUser } from './actionTypes'
+/* import user from './actionTypes'
 const typeUser = user.typeUser
+console.log(user)
 */
-console.log(typeUser)
 
-const reducer = combineReducers(reducers)
+const login = (state = 0, active) => {
+  if (active.type === typeUser.LOGIN) {
+    return 1
+  }
+  return state
+}
+
+const intitle = (state = 'baby', active) => {
+  if (active.type === typeUser.INTITLE) {
+    return active.name
+  }
+  return state
+}
+
+const reducer = combineReducers({ login, intitle })
 const store = createStore(reducer)
 /*
 const store = createStore((state = {}, active) => {
