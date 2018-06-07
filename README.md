@@ -21,3 +21,5 @@ react/react-router-dom/redux
   * 路由(组件)都是 Function
   * 404 时使用 Switch 组件，即是模糊匹配
 5. 非 “/” 路由时，刷新页面报错
+6. redux 中 reducer dispatch 修改了其他的值
+  * reducer 默认情况下必须原封不动地返回 state
