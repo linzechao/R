@@ -1,9 +1,9 @@
 import React from 'react'
 
-class Page3 extends React.Component {
-  render () {
-    return <div>page3</div>
-  }
+const Page3 = (props) => {
+  console.log(props)
+
+  return <div>page3</div>
 }
 
 export default Page3

@@ -58,9 +58,11 @@ module.exports = {
       }
     ]
   },
+  /*
   devServer: {
     contentBase: './dist'
   },
+  */
   resolve: {
     alias: {
       // '@': path.resolve(__dirname, 'src/components'),

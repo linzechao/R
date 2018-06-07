@@ -3,6 +3,8 @@ import React from 'react'
 import { createStore } from 'redux'
 import { WingBlank, WhiteSpace, Button } from 'antd-mobile'
 
+import Two from './page/2.js'
+
 // Store
 const store = createStore((state = 0, action) => {
   switch (action.type) {
@@ -18,23 +20,33 @@ const store = createStore((state = 0, action) => {
 })
 
 class Page2 extends React.Component {
+  add () {
+    store.dispatch({type: 'add'})
+  }
+
+  reduce () {
+    store.dispatch({type: 'reduce'})
+  }
+
   render () {
     return (
       <WingBlank>
         <Button icon="up"
-          onClick={() => store.dispatch({type: 'add'})}>add</Button>
+          onClick={this.add}>add</Button>
         <WhiteSpace />
-        <h2>{store.getState()}</h2>
+
+        <Two value={store.getState()}></Two>
+
         <WhiteSpace />
         <Button icon="down"
-          onClick={() => store.dispatch({type: 'reduce'})}>reduce</Button>
+          onClick={this.reduce}>reduce</Button>
       </WingBlank>
     )
   }
 }
 
 store.subscribe(() => {
-  Page2.render()
+  console.log(store.getState())
 })
 
 export default Page2

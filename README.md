@@ -16,5 +16,8 @@ react/react-router-dom/redux
 ### Q&A
 1. mock 没有自带服务器功能
 2. 合并 setState
-3. 暂不支持 <></>
+3. 不支持 <></>
 4. 路由不能嵌套
+  * 路由(组件)都是 Function
+  * 404 时使用 Switch 组件，即是模糊匹配
+5. 非 “/” 路由时，刷新页面报错
