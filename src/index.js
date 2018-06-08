@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import createRouter from './router/bak/router3'
+import createRouter from './router'
 
 ReactDOM.render(
   createRouter(),

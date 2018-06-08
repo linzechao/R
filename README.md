@@ -6,7 +6,7 @@ react/react-router-dom/redux
 2. react/react-dom
 3. babel
 4. style-loader/css-loader
-5. mock
+5. mock/webpack-api-mocker
 6. react-router-dom
 7. less-loader
 8. sass-loader

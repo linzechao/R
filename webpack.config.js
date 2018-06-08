@@ -1,5 +1,6 @@
 const path = require('path')
 const theme = require('./package.json').theme
+const apiMocker = require('webpack-api-mocker')
 
 module.exports = {
   // mode: env.production ? 'production' : 'development',
@@ -60,7 +61,11 @@ module.exports = {
   },
   devServer: {
     // contentBase: './dist'
-    historyApiFallback: true
+    historyApiFallback: true,
+    before(app) {
+      apiMocker(app, path.resolve('mocker/index.js'), {})
+      app.listen(8090)
+    }
   },
   resolve: {
     alias: {
