@@ -1,6 +1,6 @@
 import { user as typeUser } from './actionTypes'
 
-console.log(typeUser)
+// console.log(typeUser)
 
 const login = (state = 0, active) => {
   if (active.type === typeUser.LOGIN) {
