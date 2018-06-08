@@ -8,7 +8,7 @@ import {
 
 import {NavBar, Icon, Drawer, List} from 'antd-mobile'
 
-import '$/index.scss'
+import '^/index.scss'
 
 import Page1 from '_/page1'
 import Page2 from '_/page2'

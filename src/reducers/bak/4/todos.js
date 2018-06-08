@@ -12,9 +12,10 @@ const todos = (state = [], action) => {
     case 'TOGGLE_TODO':
       return state.map(todo => {
         return (todo.id === action.id) ? ({
-          // 这里不支持 ...todo
-          id: todo.id,
-          text: todo.text,
+          // 这里不支持
+          ...todo,
+          // id: todo.id,
+          // text: todo.text,
           completed: !todo.completed
         }) : todo
       })
