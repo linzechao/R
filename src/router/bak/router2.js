@@ -16,10 +16,11 @@ const NoMatch = () => {
   return <div>404, not found.</div>
 }
 
+// 这个属性有点 low
+// basename="/3/4/5"
 const RouterDOM = () => {
   return (
     <Router
-      basename="/3/4/5"
       keyLength={1}>
       <div>
         <ul>

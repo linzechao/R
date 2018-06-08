@@ -1,4 +1,4 @@
-import { user as typeUser } from './actionTypes'
+import { user as typeUser } from './actionTypes3'
 
 // console.log(typeUser)
 
