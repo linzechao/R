@@ -58,16 +58,18 @@ module.exports = {
       }
     ]
   },
-  /*
   devServer: {
-    contentBase: './dist'
+    // contentBase: './dist'
+    historyApiFallback: true
   },
-  */
   resolve: {
     alias: {
-      // '@': path.resolve(__dirname, 'src/components'),
+      // !、$ 不能使用
+      '@': path.resolve(__dirname, 'src'),
+      '^': path.resolve(__dirname, 'src/assets/scss'),
+      '%': path.resolve(__dirname, 'src/components'),
       '_': path.resolve(__dirname, 'src/router'),
-      '$': path.resolve(__dirname, 'src/utils')
+      '#': path.resolve(__dirname, 'src/utils')
     }
   }
 }
