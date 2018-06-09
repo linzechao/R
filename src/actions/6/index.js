@@ -1,6 +1,32 @@
-const LOADING = 'LOADING'
-const LOADED_FAILURE = 'LOADED_FAILURE'
-const LOADED_SUCCESS = 'LOADED_SUCCESS'
+import {
+  GET_LOADING,
+  START_GET,
+  NEXT_LOADING
+} from '@/actionTypes/6'
 
-const loadData = (state = 'LOADING', action) => {
+const setData = (list) => {
+  return {
+    type: GET_LOADING,
+    list
+  }
+}
+
+const setNextData = (list) => {
+  return {
+    type: NEXT_LOADING,
+    list
+  }
+}
+
+const startGetData = (isStart) => {
+  return {
+    type: START_GET,
+    start: isStart
+  }
+}
+
+export {
+  setData,
+  setNextData,
+  startGetData
 }

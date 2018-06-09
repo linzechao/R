@@ -5,23 +5,25 @@ import { connect } from 'react-redux'
 import { List } from 'antd-mobile'
 
 const Item = List.Item
-const Brief = List.Brief
+const Brief = Item.Brief
 
-const ListData = ({ data }) => {
+const ListData = ({ list }) => {
   return (
     <List renderHeader={ () => 'Hi, man. Let\'s Go...' }>
-      { data.map((item, index) =>
-        <Item extra={ item.extra }>
-          { item.title } <Brief>{ item.subtitle }</Brief>
-        </Item>
-      ) }
+      {
+        list.map(({ id, extra, title, subtitle }, index) =>
+          <Item key={ index } extra={ extra ? '成功' : '失败' }>
+            { title } <Brief>{ subtitle }</Brief>
+          </Item>
+        )
+      }
     </List>
   )
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = state => {
   return {
-    data: state.data
+    list: state.list
   }
 }
 
