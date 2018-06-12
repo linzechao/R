@@ -23,3 +23,14 @@ react/react-router-dom/redux
 5. 非 “/” 路由时，刷新页面报错
 6. redux 中 reducer dispatch 修改了其他的值
   * reducer 默认情况下必须原封不动地返回 state
+
+# dva
+1. eslint 没启动
+  ```bash
+  yarn lint
+  ```
+2. 非首页刷新报错
+  * 在 <code>./public/index.html</code> 中引入的 JS 前面加上 /，如下：
+  ```js
+  <script src="/index.js"></script>
+  ```

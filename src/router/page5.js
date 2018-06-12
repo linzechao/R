@@ -17,7 +17,9 @@ const there = () => {
   return <div>5. there</div>
 }
 
-const Page5 = ({match}) => {
+const Page5 = ({ match }) => {
+  console.log(match)
+
   return (
     <div>
       <ul>
@@ -41,6 +43,8 @@ const Page5 = ({match}) => {
 }
 
 const component = ({match}) => {
+
+  console.log(match)
   return <div>{match.params.id}</div>
 }
 

@@ -64,7 +64,7 @@ module.exports = {
     historyApiFallback: true,
     before(app) {
       apiMocker(app, path.resolve('mocker/index.js'), {})
-      app.listen(8080)
+      app.listen(8090)
     }
   },
   resolve: {
